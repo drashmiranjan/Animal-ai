@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarthiban - AI Animal Rescue Assistant</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2022/09/24/19/47/dog-7477112_1280.png" type="image/png">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header>
+            <div class="logo-title">
+                <img src="https://cdn.pixabay.com/photo/2022/09/24/19/47/dog-7477112_1280.png" alt="Sarthiban Logo" class="logo-img">
+                <span class="app-name">SARTHIBAN</span>
+            </div>
+            <h2 class="subtitle">🐾 AI Animal Rescue Assistant</h2>
+        </header>
+
+        <!-- Chat/Upload Section -->
+        <main>
+            <div class="chat-box">  
+                <!-- Upload Form -->
+                <form method="POST" enctype="multipart/form-data" class="upload-form">
+                    {% csrf_token %}
+                    <label for="fileInput" class="form-label">Upload animal image</label>
+                    {{ form.as_p }}
+                    <button type="submit">Upload & Analyze</button>
+                </form>
+
+                <!-- Uploaded Image Bubble -->
+                {% if img_obj %}
+                <div class="chat-row">
+                    <div class="chat-bubble user-bubble">
+                        <strong>You uploaded:</strong><br>
+                        <img src="{{ img_obj.image.url }}" class="image-preview" alt="Uploaded Animal Image">
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- AI Response Bubble -->
+                {% if response %}
+                <div class="chat-row">
+                    <div class="chat-bubble ai-bubble">
+                        <strong>AI Diagnosis:</strong><br>
+                        {{ response }}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                Developed by <strong>Dr. Ashmi Ranjan</strong> |
+                GitHub: <a href="https://github.com/drashmiranjan" target="_blank">@drashmiranjan</a>
+                Portfolio: <a href="https://drashmiranjanportfolio.netlify.app/" target="_blank">@drashmiranjan</a>
+            </div>
+        </footer>
+    </div>
+    
+</body>
+</html>

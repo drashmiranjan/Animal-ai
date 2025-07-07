@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f5ff 0%, #e9f7ef 100%);
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* Main container ensures full height and vertical layout */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header with logo and title */
+header {
+    background: linear-gradient(90deg, #3a8dde 60%, #c9e7ff 100%);
+    padding: 2rem 0 1.3rem 0;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    box-shadow: 0 2px 10px 0 rgba(58, 141, 222, 0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.logo-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: #fff;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px #2b6cb033;
+    transition: transform 0.2s;
+}
+
+.logo-img:hover {
+    transform: scale(1.07) rotate(-3deg);
+}
+
+.app-name {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #f11a1a;
+    letter-spacing: 0.07em;
+    text-shadow: 0 2px 8px #2563eb22;
+}
+
+.subtitle {
+    color: #d9ff00;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin: 1.2rem 0 0 0;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
+/* Main - Chat Section */
+main {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Chat box styled like a mobile phone */
+.chat-box {
+    background: #fff;
+    border-radius: 30px;
+    max-width: 370px;
+    margin: 2.5rem 0 2rem 0;
+    box-shadow: 0 10px 40px 0 rgba(58, 141, 222, 0.21), 0 1.5px 6px 0 rgba(22, 40, 55, 0.06);
+    padding: 1.3rem 1.1rem 1.4rem 1.1rem;
+    min-width: 0;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 1.4px solid #e3ecf7;
+    position: relative;
+    /* Simulate phone notch */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.chat-box::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58px;
+    height: 7px;
+    border-radius: 7px;
+    background: #e4e8ef;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/* Mobile style for the upload form */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+    background: #f5f8ff;
+    padding: 1.25rem 1rem 1rem 1rem;
+    border-radius: 18px;
+    box-shadow: 0 1.5px 12px #2563eb08;
+    border: 1px solid #e3ecf7;
+    position: relative;
+}
+
+.form-label {
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.25rem;
+    font-size: 1.13rem;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
+.upload-form p {
+    margin: 0;
+    text-align: center;
+}
+
+.upload-form input[type="file"] {
+    border: 1.4px solid #b7d2f7;
+    border-radius: 10px;
+    padding: 0.5rem 0.7rem;
+    background: #fff;
+    color: #2563eb;
+    font-size: 1.02rem;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+.upload-form input[type="file"]:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+.upload-form button[type="submit"] {
+    background: linear-gradient(90deg, #2563eb 80%, #4ea1f7 100%);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 0.75rem 0;
+    font-size: 1.09rem;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 8px #2563eb18;
+    transition: background 0.18s, box-shadow 0.18s;
+    letter-spacing: 0.01em;
+}
+.upload-form button[type="submit"]:hover {
+    background: linear-gradient(90deg, #174ea6 60%, #2563eb 100%);
+    box-shadow: 0 4px 14px #2563eb22;
+}
+
+/* Chat Bubbles */
+.chat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.chat-bubble {
+    padding: 0.93rem 1rem;
+    border-radius: 17px;
+    max-width: 90%;
+    box-shadow: 0 2px 12px #2563eb10;
+    font-size: 1.06rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+    background: #f6f9fe;
+    margin: 0.3rem 0;
+    position: relative;
+    border: 1.2px solid #e3ecf7;
+}
+
+.user-bubble {
+    align-self: flex-end;
+    background: linear-gradient(90deg, #bee3f8 60%, #dbeafe 100%);
+    color: #222;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 17px;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    box-shadow: 0 2px 8px #2563eb15;
+}
+
+.ai-bubble {
+    align-self: flex-start;
+    background: linear-gradient(90deg, #d1fae5 60%, #f0fdf4 100%);
+    color: #17562f;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 17px;
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+    box-shadow: 0 2px 8px #10b98119;
+}
+
+.image-preview {
+    display: block;
+    margin-top: 0.6rem;
+    margin-bottom: 0.2rem;
+    max-width: 170px;
+    max-height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px #2563eb09;
+    border: 2px solid #e0e7ef;
+    background: #fafcff;
+    object-fit: cover;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: linear-gradient(90deg, #19406e 60%, #59b4ff 100%);
+    color: #fff;
+    padding: 1.1rem 0 1rem 0;
+    font-size: 1.04rem;
+    text-align: center;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 -2px 12px #2b6cb022;
+    opacity: 0.98;
+    margin-top: auto;
+}
+
+footer a {
+    color: #ffd866;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+footer a:hover {
+    color: #fff1a0;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 430px) {
+    .chat-box {
+        padding: 0.65rem 0.05rem 0.8rem 0.05rem;
+        margin: 1.1rem 0 1.1rem 0;
+        max-width: 100vw;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    .upload-form {
+        padding: 0.65rem 0.3rem 0.6rem 0.3rem;
+        border-radius: 10px;
+    }
+    .image-preview {
+        max-width: 90vw;
+        max-height: 90vw;
+    }
+    .app-name {
+        font-size: 1.28rem;
+    }
+    .logo-img {
+        width: 34px;
+        height: 34px;
+    }
+    .chat-bubble {
+        font-size: 0.98rem;
+        padding: 0.65rem 0.6rem;
+        max-width: 98vw;
+    }
+    footer {
+        font-size: 0.90rem;
+        padding: 0.7rem 0;
+        border-radius: 0;
+    }
+    header {
+        border-radius: 0;
+        padding: 1.1rem 0 0.5rem 0;
+    }
+}
